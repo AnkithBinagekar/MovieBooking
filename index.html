@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <style>
+        /* Center the cancel button */
+        .cancel-button {
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Booking System</title>
+</head>
+<body>
+    <h1>Welcome to Movie Booking System</h1>
+
+    <form action="insert_booking.php" method="post">
+        <label for="movie">Select Movie:</label>
+        <select id="movie" name="movie" required>
+            <option value="1"> Tiger 3 </option>
+            <option value="2">The Marvels</option>
+            <!-- Add more options based on your movies table -->
+        </select>
+        <br>
+
+        <label for="theater">Select Theater:</label>
+        <select id="theater" name="theater" required>
+           <option value="1">1930 VASCO</option>
+            <option value="2">Z SQUARE VASCO</option>
+            <!-- Add more options based on your theaters table -->
+        </select>
+        <br>
+
+        <label for="showtime">Select Showtime:</label>
+        <select id="showtime" name="showtime" required>
+              <option value="1">10:30 AM</option>
+            <option value="2">12:30 PM</option>
+            <option value="3">2:30 PM</option>
+            <option value="4">3:30 PM</option>
+           
+        
+        </select>
+    </select>
+    <br>
+
+    <label for="seat">Select Seat:</label>
+    <select id="seat" name="seat" required>
+        
+        <option value="1">A1</option>
+        <option value="2">A2</option>
+        <option value="3">A3</option>
+        <option value="4">B1</option>
+        <option value="5">B2</option>
+        <option value="6">B3</option>
+    
+    </select>
+        <br>
+
+        <label for="num_tickets">Number of Tickets:</label>
+        <input type="number" id="num_tickets" name="num_tickets" required min="1">
+        <br>
+        
+
+        <input type="submit" value="Book Now">
+    </form>
+
+    <!-- Additional content or footer -->
+    <!-- Special styled button for Cancel Booking -->
+    <a href="cancel.html" class="cancel-button">Cancel Booking</a>
+    <!-- Include scripts or stylesheets if needed -->
+</body>
+</html>
+
+

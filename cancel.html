@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" type="text/css" href="cancel.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancel Booking - Movie Booking System</title>
+</head>
+<body>
+    <h1>Cancel Booking</h1>
+
+    <form action="cancel_booking.php" method="post">
+        <label for="booking_id">Booking ID:</label>
+        <input type="text" id="booking_id" name="booking_id" required placeholder="Enter Booking ID here">
+        <br>
+        <input type="submit" value="Cancel Booking">
+        <?php
+        // Include the database connection file (connect.php)
+        include 'connect.php';
+        
+        // Check if the form is submitted
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Retrieve the Booking ID from the form
+            $booking_id = $_POST['booking_id'];
+        
+            // Perform the cancellation in the database
+            $sql = "DELETE FROM MovieBooking.BOOKINGS WHERE BOOKING_ID = :booking_id";
+            $statement = oci_parse($connection, $sql);
+        
+            oci_bind_by_name($statement, ':booking_id', $booking_id);
+        
+            // Execute the deletion query
+            $success = oci_execute($statement);
+        
+            // Check if deletion was successful
+            if ($success) {
+                echo 'Booking cancellation successful';
+            } else {
+                echo 'Booking cancellation failed';
+            }
+        
+            // Close the database connection
+            oci_close($connection);
+        }
+        ?>
+        
+    </form>
+
+    <!-- Additional content or footer -->
+
+    <!-- Include scripts or stylesheets if needed -->
+</body>
+</html>
